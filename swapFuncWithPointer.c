@@ -17,3 +17,4 @@ int main(void)
     Swap(&x,&y);
     return 0;
 }
+// hints - project abouut pointers
