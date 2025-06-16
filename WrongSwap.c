@@ -4,8 +4,8 @@ void swap(int a, int b)
         int temp = a;
         a = b;
         b = temp;
-    printf("Inside swap(): a = %d, b = %d\n", a, b);
 
+    printf("Inside swap(): a = %d, b = %d\n", a, b);
     }
 int main(void)
 {
