@@ -25,7 +25,7 @@ int main()
 
     }
 
-    if (size%2==0)
+    if (size%2==0) // for even numbers - we should know last on item in arr
     {
         for (int i = 1; i<size; i++)
         {
@@ -41,7 +41,7 @@ int main()
         }
 
     }
-    else if (size%2==1)
+    else if (size%2==1) // for odd numbers - the same occasion
     {
         for (int i = 1; i<size-1; i++)
         {
