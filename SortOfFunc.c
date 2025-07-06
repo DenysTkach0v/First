@@ -1,10 +1,10 @@
 #include <stdio.h>
-#define size 7
 void SortFunc();
+int arr[]={2,0,10,5,-1,-5,-125,3};
+int size=sizeof(arr)/sizeof(int);
 
 int main()
 {
-    int arr[]={2,0,10,5,-1,-5,-125};;
 
 SortFunc(size-1,arr);
 
