@@ -2,16 +2,18 @@
 
 void rcs(int x)
 {
-    printf("Down: x = %d\n", x);
+    if(x == 4) return;
+    int arr[4]={1,2,3,0};
 
-    if(x > 1)
-        rcs(x-1);
+    printf("Down: x = %d\n", arr[x]);
 
-    printf("Up: x = %d\n", x);
+        rcs(x+1);
+
+    printf("Up: x = %d\n", arr[x]);
 }
 
 int main()
 {
-    rcs(4); // запуск рекурсии
+    rcs(0); // запуск рекурсии
     return 0;
 }

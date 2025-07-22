@@ -1,17 +1,3 @@
-// #include <stdio.h>
-// void recs(int num);
-// int main()
-// {
-//  recs(1);
-// }
-// void recs(int num)
-// {
-//     if (num>5) return;
-//           printf("%d ",num);
-//   recs(num+1);
-//
-// }
-
 #include <stdio.h>
 
 #define SIZE 5
