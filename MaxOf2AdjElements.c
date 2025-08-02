@@ -1,24 +1,25 @@
 #include <stdio.h>
-int arr[4]={2,4,7,8};
-int max=0;
 int Max(int *array, int index,int size)
 {
+    if (size<2)
+    {
+        return 0;
+    }
     if (index >= size-1)
     {
-        return max;
-    }
-    if (arr[index]+arr[index+1]>max)
-    {
-        max = arr[index]+arr[index+1];
-
+        return 0;
     }
 
+int sum = *(array+index)+ *(array+index+1);
+    int nextMax = Max(array,index+1,size);
+    return (sum>nextMax)? sum: nextMax;
 
 
-return Max(array,index+1,size);
 }
 int main()
 {
-    Max(arr,0,4);
-    printf("%d\n", Max(arr, 0, 4));
+    int arr[5]={122,2,444,7,8};
+    int result = Max(arr,0,5);
+    printf("%d\n",result);
+    return 0;
 }
