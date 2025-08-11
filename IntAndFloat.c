@@ -1,5 +1,6 @@
 #include <stdio.h>
 //here will be func
+
 int main()
 {
     float arr[5] = {2.8, 2.7, 3.6, 4.5, 5.4};
