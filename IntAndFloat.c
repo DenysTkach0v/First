@@ -1,33 +1,32 @@
 #include <stdio.h>
-//here will be func
 
-int main()
-{
-    float arr[5] = {2.8, 2.7, 3.6, 4.5, 5.4};
-    int SIZE = sizeof(arr) / sizeof(float);
+float arr[5] = {1.8, 2.7, 3.6, 4.5, 5.6};
+int SIZE = sizeof(arr) / sizeof(float);
 
-    for (int i = 0; i < SIZE - 1; i++) // stop before last element
-    {
-        int integer1 = (int)arr[i];
-        int integer2 = (int)arr[i+1];
+int Rcs(float *Arr, int size) {
+    if (size <= 1) return 1;  // базовий випадок
 
-        double fraction1 = arr[i] - integer1;
-        double fraction2 = arr[i+1] - integer2;
+    int integer1 = (int)Arr[0];
+    int integer2 = (int)Arr[1];
 
-        printf("Pair %d: int1=%d, frac1=%.2f \n", i, integer1, fraction1);
+    double fraction1 = Arr[0] - integer1;
+    double fraction2 = Arr[1] - integer2;
 
-        if (integer1 >= integer2)
-        {
-            printf("failed\n");
-            return 0;
-        }
-        if (fraction1 <= fraction2)
-        {
-            printf("failed\n");
-            return 0;
-        }
+    if (integer1 >= integer2) {
+        printf("failed (int %d >= %d)\n", integer1, integer2);
+        return 0;
+    }
+    if (fraction1 <= fraction2) {
+        printf("failed (frac %.2f <= %.2f)\n", fraction1, fraction2);
+        return 0;
     }
 
-    printf("All good\n");
+    // рекурсивно перевіряємо решту масиву (починаючи з наступного елемента)
+    return Rcs(Arr + 1, size - 1);
+}
+
+int main() {
+    if (Rcs(arr, SIZE))
+        printf("success\n");
     return 0;
 }
