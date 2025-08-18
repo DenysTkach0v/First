@@ -10,7 +10,9 @@ int ChangeToBinaryNumber(int decimalNumber) {
 
 int main()
 {
-    int dec = 12;
+    int dec = 0;
+printf("Enter a Binary Number : ");
+    scanf("%d",&dec);
     //comment po prikili\i
     ChangeToBinaryNumber(dec);
     return 0;
