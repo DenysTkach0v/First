@@ -8,14 +8,11 @@ int ChangeToBinaryNumber(int decimalNumber) {
     printf("%d", decimalNumber % 2);           // print remainder
 }
 
-int main()
-{
+int main() {
     int dec = 0;
-printf("Enter a Binary Number : ");
+    printf("Enter a Binary Number : ");
     scanf("%d",&dec);
     //comment po prikili\i
     ChangeToBinaryNumber(dec);
     return 0;
-
-
 }
