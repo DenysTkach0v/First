@@ -7,6 +7,7 @@ int main()
 {
 int* arr[5];
     int i;
+    int numbOfcolumns;
     for (i = 0; i < 5; i++) {
     arr[i] = (int*)calloc(3,sizeof(int));
     }
