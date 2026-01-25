@@ -3,22 +3,35 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+int** allocate2DMatrix() {
+ int**a;
+ int rows, cols;
+ int i;
+ printf("Enter number of rows : ");
+ scanf("%d",&rows);
+ a = (int**)calloc(rows,sizeof(int*));
+ if (!a) return NULL;
+ for (i=0; i<rows;i++) {
+  printf("Enter number of columns for row %d: ",i+1);
+  scanf("%d",&cols);
+  a[i]=(int*)calloc(cols,sizeof(int));
+  if (!a[i]) {
+   // TODOO >> freeMatrix;
+   return NULL;
+  }
+ }
+}
 int main()
 {
-    int **a;
-    int rows, cols;
-    int i;
-    printf("please enter number of rows:\n");
-    scanf("%d",&rows);
-    a = (int**)calloc(rows,sizeof(int*));
-    for (i = 0; i < rows; i++) {
-        printf("Enter numbers of columns:");
-        scanf("%d",&cols);
-        a[i]=(int*)calloc(cols,sizeof(int));
-    }
+ int ** myMatrix;
+ int rows, cols;
 
-    for (int j=0;j<rows;j++) {
-        printf("%d\n",*a[j]);
-    }
-return 0;
+ printf("Enter number of rows for the 2D Matrix : ");
+ scanf("%d",&rows);
+
+ printf("Enter number of columns for the 2D Matrix : " );
+ scanf("%d",&cols);
+
+ myMatrix =allocate2DMatrix();
+
 }
