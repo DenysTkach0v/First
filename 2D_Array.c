@@ -5,14 +5,20 @@
 #include <stdlib.h>
 int main()
 {
-int* arr[5];
+    int **a;
+    int rows, cols;
     int i;
-    int numbOfcolumns;
-    for (i = 0; i < 5; i++) {
-printf("Please enter the number of columns for this row: ");
-        scanf("%d",&numbOfcolumns);
-        arr[i]=(int*)calloc(numbOfcolumns,sizeof(int));
+    printf("please enter number of rows:\n");
+    scanf("%d",&rows);
+    a = (int**)calloc(rows,sizeof(int*));
+    for (i = 0; i < rows; i++) {
+        printf("Enter numbers of columns:");
+        scanf("%d",&cols);
+        a[i]=(int*)calloc(cols,sizeof(int));
     }
 
+    for (int j=0;j<rows;j++) {
+        printf("%d\n",*a[j]);
+    }
 return 0;
 }
