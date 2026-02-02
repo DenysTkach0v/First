@@ -3,6 +3,8 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 void freeMatrix(int** a, int rows)
 {
  int i;
@@ -28,8 +30,7 @@ int** allocate2DMatrix(int rows, int cols) {
  a = (int**)calloc(rows,sizeof(int*));
  if (!a) return NULL;
  for (i=0; i<rows;i++) {
- // printf("Enter number of columns for row %d: ",i+1);
-//  scanf("%d",&cols);
+
   a[i]=(int*)calloc(cols,sizeof(int));
   if (!a[i]) {
    freeMatrix(a,rows);
@@ -49,10 +50,61 @@ void fillMatrix(int** a, int rows, int columns) {
   printf("\n");
  }
 }
+void SwapColumns(int** a,int rows,int columns) {
+ for (int i=0;i<rows;i++) {
+ for (int j=0;j<columns;j++) {
+  int temp = a[i][j];
+  a[i][j] = a[i][columns-1];
+  a[i][columns-1] = temp;
+
+ }
+  }
+ }
+void SwapTwoRows(int **a, int rows1, int rows2) {
+ void* temp;
+ temp = a[rows1];
+ a[rows1] = a[rows2];
+ a[rows2] = temp;
+
+}
+ void SwapRows(int** a,int rows, int columns) {
+ for (int i=0;i<rows;i++) {
+  for (int j=0;j<columns;j++) {
+   int temp;
+   temp = a[i][j];
+   a[i][j] = a[rows-1][j];
+   a[rows-1][j] = temp;
+  }
+ }
+}
+int** LowerTriangleMatrix(int rows)
+{
+ int i;
+ int** newMatrix=(int**)malloc(rows*sizeof(int*)); // a = matrix of pointers
+
+for (i=0;i<rows;i++) {
+
+ newMatrix[i]=(int*)malloc((i+1)*sizeof(int)); // memory allocation
+}
+ return newMatrix;
+
+}
+void printTriangleMatrix(int** a, int rows) {
+ int i,j;
+ for (i=0;i<rows;i++) {
+  for (j=0;j<=i;j++) {
+   printf("%d\t",a[i][j]);
+
+  }
+  printf("\n");
+ }
+}
+
+
+
 
 int main()
 {
- //int **a;
  char answer[50];
  int ** myMatrix;
  int rows, cols;
@@ -68,26 +120,19 @@ int main()
  myMatrix =allocate2DMatrix(rows,cols);
  fillMatrix(myMatrix,rows,cols);
  print2DDynamicMatrix(myMatrix,rows, cols);
- printf("Do you want to change matrix , y/n?: ");
- scanf("%s",answer);
- while (answer[0] == 'y' || answer[0] == 'Y') {
-freeMatrix(myMatrix,rows);
 
+ printf("Do you want to use LowerTriangleMatrix func?:");
+ scanf("%s",&answer);
+ if (answer[0] == 'y' || answer[0] == 'Y')  {
+  freeMatrix(myMatrix, rows);
 
- printf("Enter NEW number of rows:");
-  scanf("%d",&rows);
+myMatrix = LowerTriangleMatrix(rows);
+  // fillMatrix(myMatrix,rows,cols);
 
-  printf("Enter NEW number of columns:");
-  scanf("%d",&cols);
-
-  printf("Do you want to change matrix , y/n?: ");
-  scanf("%s",answer);
-myMatrix=allocate2DMatrix(rows,cols);
-  fillMatrix(myMatrix,rows,cols);
-
+ // SwapRows(myMatrix,rows,cols);
   print2DDynamicMatrix(myMatrix,rows, cols);
+
  }
-
-
-
+ freeMatrix(myMatrix, rows);
+return 0;
 }
