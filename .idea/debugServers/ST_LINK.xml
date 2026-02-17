@@ -1,0 +1,13 @@
+<component name="DebugServers">
+  <stlink-debug-target name="ST-LINK" uniqueID="339e6257-dea7-48ba-8506-53b8d3e605fa" selected="true">
+    <debugger version="1">
+      <debugger kind="GDB" isBundled="true" />
+      <env />
+    </debugger>
+    <gdbserver exe="$USER_HOME$/Downloads/makeself_dir_S7Ko74/y/STLink-gdb-server/bin/ST-LINK_gdbserver" programmer="$USER_HOME$/Downloads/makeself_dir_S7Ko74/y/STM32CubeProgrammer/bin" />
+    <st-link />
+    <device interface="SWD" />
+    <connection port="61234" warmup-ms="500" />
+    <swo enabled="false" port="61235" />
+  </stlink-debug-target>
+</component>
