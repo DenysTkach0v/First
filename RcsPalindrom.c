@@ -39,7 +39,7 @@ void printArr(int *arr, int size) {
 
 int *createArray() {
     int i;
-    int myArr[SIZE];
+    static int myArr[SIZE];
     printf("Enter %d elements to your array.\n", SIZE);
     for(i = 0; i < SIZE; i++) {
         printf("Enter number %d: ", i);

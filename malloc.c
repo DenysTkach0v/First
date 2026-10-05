@@ -1,25 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-void gerericSwap(void*a, void*b, int size)
-{
-    void* tempMemory = malloc(size);
-    memcpy(tempMemory,a,size);
-    memcpy(a,b,size);
-    memcpy(b,tempMemory,size);
-    printf("Address of a:%p\n",&a);
-    printf("a:%p\n",a);
-    printf("\n");
+int main() {
+   int *ptr = (int*)malloc(19);
+   for (int i = 0; i<5; i++)
+      ptr[i] = i + 1;
 
-    printf("Address of b:%p\n",&b);
-    printf("b:%p\n",b);
-    free(tempMemory);
+    // print
+    for (int i = 0; i<5; i++)
+        printf("%d ",ptr[i]);
 
+    free(ptr);
+    return 0;
 
-}
-int main()
-{
-    int num1 = 5, num2 = 7;
-    gerericSwap(&num1, &num2,sizeof(int));
 }
